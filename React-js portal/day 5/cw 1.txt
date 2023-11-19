@@ -1,0 +1,95 @@
+cw 1
+
+Day 5 :
+Class project:1
+import React, { Component } from 'react';
+// ErrorBoundary component to catch errors
+class ErrorBoundary extends Component {
+constructor(props) {
+super(props);
+this.state = { hasError: false };
+}
+// This lifecycle method is invoked after an error has been thrown by a descendant component
+componentDidCatch(error, info) {
+this.setState({ hasError: true });
+console.error('Error caught by error boundary:', error, info);
+}
+render() {
+return this.state.hasError ? (
+// Render a custom fallback UI when an error occurs
+<div>Something went wrong.</div>
+) : (
+// Render the children if there is no error
+this.props.children
+);
+}
+}
+// Example component that renders an array of list elements
+const ListComponent = ({ items }) => {
+return (
+<ul>
+{items.map(item => (
+<li key={item.id}>{item.text}</li>
+))}
+</ul>
+);
+};
+const App = () => {
+const data = [
+{ id: 1, text: 'Pasta' },
+{ id: 2, text: 'Dhaal' },
+{ id: 3, text: 'Wheat' },
+{ id: 4, text: 'Rice' },
+];
+return (
+<div>
+<h1>React Error Handling Example with Error Boundary</h1>
+{/* Wrap the component tree with the ErrorBoundary component */}
+<ErrorBoundary>
+<h2>List Component Inside Error Boundary</h2>
+{/* Pass the correct items prop to ListComponent */}
+<ListComponent items={data} />
+</ErrorBoundary>
+</div>
+);
+};
+export default App;
+output:
+Something error code:
+import React, { Component } from 'react';
+// ErrorBoundary component to catch errors
+class ErrorBoundary extends Component {
+constructor(props) {
+super(props);
+this.state = { hasError: false };
+}
+// This lifecycle method is invoked after an error has been thrown by a descendant component
+componentDidCatch(error, info) {
+this.setState({ hasError: true });
+console.error('Error caught by error boundary:', error, info);
+}
+render() {
+return this.state.hasError ? (
+// Render a custom fallback UI when an error occurs
+<div>Something went wrong.</div>
+) : (
+// Render the children if there is no error
+this.props.children
+);
+}
+}
+// Example component that may throw an error
+const ErrorProneComponent = () => {
+// Intentional error: Simulating an error within the component
+throw new Error('Simulated error!');
+};
+const App = () => {
+return (
+<div>
+<h1>React Error Handling Example with Error Boundary</h1>
+{/* Wrap the component tree with the ErrorBoundary component */}
+<ErrorBoundary>
+<h2>Example Component Inside Error Boundary</h2>
+{/* Intentionally trigger an error */}
+<ErrorProneComponent />
+</ErrorBoundary>

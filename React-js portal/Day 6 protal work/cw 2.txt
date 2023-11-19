@@ -1,0 +1,53 @@
+cw 2
+
+
+Themec.js
+import { createContext } from "react";
+const ThemeContext=createContext();
+export default ThemeContext
+ParA.js
+//call the app .js
+import React from 'react'
+import Sharere from './Shareds';
+const PareA = () => {
+const dataA=[
+{id:1, name:"A" ,price:200, imageurl:"https://tse1.mm.bing.net/th?id=OIP.Q5HdlFrHhuI8yItD5n-
+ZXQHaE5&pid=Api&P=0&h=180"},
+{id:2, name:"B" ,price:300,
+imageurl:"https://tse2.mm.bing.net/th?id=OIP.CmbO_IgvScBpt9QSGcMG8QHaE7&pid=Api&P=0&h=
+180"},
+{id:3, name:"C" ,price:400,
+imageurl:"https://tse2.mm.bing.net/th?id=OIP.GDRIpwB1_2uqzGHwnMHvWgHaJ4&pid=Api&P=0&h
+=180"},
+{id:4, name:"D" ,price:500, imageurl:"https://tse2.mm.bing.net/th?id=OIP.bu8imP4qgj7-
+IS4PmdUZ3wHaFQ&pid=Api&P=0&h=180"}
+]
+return (
+<div>Par A Component
+<Sharere data={dataA}/>
+</div>
+)
+}
+export default PareA
+Shared.js
+import React from 'react'
+const Sharere =({data}) => {
+return (
+<div>
+<h1>Fruits list</h1>
+<u1>
+{data.map((item)=>(
+<li key={item.id}>
+<p>Item name:{item.name}</p>
+<img src ={item.imageurl} height="100px" width="100px"alt="Error"/>
+<p>Price:{item.price}</p>
+</li>)
+)
+}
+</u1>
+</div>
+)
+}
+export default Sharere
+--------------------------------------------------------------------------------------------------------------------------------------
+OUTPUT

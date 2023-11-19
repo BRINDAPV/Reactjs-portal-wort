@@ -1,0 +1,16 @@
+ph 1
+
+Practice at home day 3:
+// App.js
+import React from 'react';
+import GokuApp from './GokuApp';
+const App = () => {
+return (
+<div>
+<h1>Welcome to Goku's React Application!</h1>
+<GokuApp />
+</div>
+);
+};
+export default App;
+output:

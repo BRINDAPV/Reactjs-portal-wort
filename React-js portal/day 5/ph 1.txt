@@ -1,0 +1,23 @@
+ph 1
+
+Lifecycle:
+import React ,{useState}from 'react';
+import { Button } from '@mui/material';
+const App = () => {
+const[resourceType,setRescourceType]=useState("posts");
+console.log("component mounted",resourceType);
+return (
+<div>
+<Button onClick={()=>setRescourceType("posts")}>Posts</Button>
+<button onClick={()=>setRescourceType("users")}>Users</button>
+<button onClick={()=>setRescourceType("comments")}>Comments</button>
+<h2>{resourceType}</h2>
+</div>
+);
+}
+export default App;
+output: for console (ctrl + sht + i)
+mounting is done using a useState:
+Update – useEffect
+Unmounted:
+Overall program:

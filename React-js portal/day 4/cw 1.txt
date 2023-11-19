@@ -1,0 +1,42 @@
+cw 1
+Classwork Project day 4:
+import React, { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import Button from '@mui/material/Button';
+const fruits = ['Apple', 'Banana', 'Cherry', 'Durian', 'Elderberry'];
+const App = () => {
+const [name, setName] = useState('');
+const [selectedFruit, setSelectedFruit] = useState(null);
+const [greeting, setGreeting] = useState('');
+const handleSubmit = () => {
+if (name && selectedFruit) {
+setGreeting(`Hello, ${name}! Your favorite fruit is ${selectedFruit}.`);
+}
+};
+return (
+<div>
+<TextField
+label="Name"
+data-testid="name"
+value={name}
+onChange={(e) => setName(e.target.value)}
+/>
+<Autocomplete
+options={fruits}
+data-testid="autocomplete"
+renderInput={(params) => (
+<TextField {...params} label="Choose a fruit" />
+)}
+value={selectedFruit}
+onChange={(_, newValue) => setSelectedFruit(newValue)}
+/>
+<Button variant="contained" data-testid="button" onClick={handleSubmit}>
+Submit
+</Button>
+{greeting && <p>{greeting}</p>}
+</div>
+);
+};
+export default App;
+output:
